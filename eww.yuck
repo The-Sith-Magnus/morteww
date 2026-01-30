@@ -117,6 +117,26 @@
   )
 )
 
+;;Control Panel Toolbar
+(defvar ctrlpanelopen false)
+(defpoll ctrlpanel_symbol
+  :interval "0.3s"
+  "bash -c '$HOME/.config/eww/bar/scripts/controlpanelbutton.sh symbol'"
+)
+(defwidget ctrlpanelbutton[]
+  (button
+    :class "ctrlpanel_but"
+    :onclick "bash -c '$HOME/.config/eww/bar/scripts/controlpanelbutton.sh openclose'"
+    (box
+      :orientation "center"
+      :halign "center"
+      :valign "center"
+      :spacing 2
+      (label :text ctrlpanel_symbol)
+    )
+  )
+)
+
 
 
 
@@ -152,6 +172,7 @@
       (wifi)
       (volume)
       (brightness)
+      (ctrlpanelbutton)
     )
 
     (box
@@ -175,6 +196,148 @@
     )
   )
 )
+
+;;CONTROL PANEL
+
+(defwindow ctrlpanel
+  :monitor 0
+  :geometry (geometry
+    :x "0.5%"
+    :y "0%"
+    :width "40%"
+    :height "98.334%"
+    :anchor "center right"
+  )
+  :stacking "fg"
+  :reserve (struts
+    :distance "0px"
+    :side "top"
+  )
+  :windowtype "normal"
+  :wm-ignore true
+  :exclusive false
+
+  "hello"
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
